@@ -1,0 +1,27 @@
+{
+    "name": "nvim-snippets",
+    "author": "friendly-snippets",
+    "engines": {
+        "vscode": "^1.11.0"
+    },
+    "contributes": {
+        "snippets": [
+            {
+                "language": "markdown",
+                "path": "./markdown.json"
+            },
+            {
+                "language": "javascript",
+                "path": "./javascript.json"
+            },
+            {
+                "language": "html",
+                "path": "./html.json"
+            },
+            {
+                "language": "sh",
+                "path": "./shell.json"
+            }
+        ]
+    }
+}

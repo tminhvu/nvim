@@ -1,0 +1,30 @@
+-- lsp kind setup
+require('lspkind').init({
+    symbol_map = {
+        Text = "",
+        Method = "",
+        Function = "",
+        Constructor = "",
+        Field = "ﰠ",
+        Variable = "",
+        Class = "",
+        Interface = "ﰮ",
+        Module = "",
+        Property = "ﰠ",
+        Unit = "",
+        Value = "",
+        Enum = "",
+        Keyword = "",
+        Snippet = "﬌",
+        Color = "",
+        File = "",
+        Reference = "",
+        Folder = "",
+        EnumMember = "",
+        Constant = "",
+        Struct = "",
+        Event = "",
+        Operator = "",
+        TypeParameter = ""
+    },
+})
