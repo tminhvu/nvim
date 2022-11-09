@@ -38,6 +38,7 @@ vim.api.nvim_set_hl(0, 'DiagnosticWarn', { fg = "#e6b99d", bold = true })
 vim.api.nvim_set_hl(0, 'DiagnosticHint', { fg = "#90b99f", bold = true })
 vim.api.nvim_set_hl(0, 'DiagnosticInfo', { fg = "#aca1cf", bold = true })
 --
+
 vim.api.nvim_set_hl(0, 'DiagnosticUnderlineError', { sp = "#ea83a5", undercurl = true })
 vim.api.nvim_set_hl(0, 'DiagnosticUnderlineWarn', { sp = "#e6b99d", undercurl = true })
 vim.api.nvim_set_hl(0, 'DiagnosticUnderlineHint', { sp = "#90b99f", undercurl = true })

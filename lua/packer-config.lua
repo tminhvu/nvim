@@ -46,7 +46,15 @@ require('packer').startup(
             end
         }
 
+        use { 'tminhvu/mellow.nvim',
+            config = function()
+                require('plugin.mellow-config-tminhvu')
+            end
+        }
+
         use { 'kvrohit/mellow.nvim',
+            as = 'mellow.nvim-original',
+            opt = true,
             config = function()
                 require('plugin.mellow-config')
             end
