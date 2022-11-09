@@ -15,6 +15,7 @@ vim.cmd [[colorscheme mellow]]
 vim.api.nvim_set_hl(0, 'Visual', { bg = "#3e3e43" })
 vim.api.nvim_set_hl(0, 'VisualNOS', { bg = "#4e4e4e" })
 vim.api.nvim_set_hl(0, 'EndOfBuffer', { fg = "#161617" })
+vim.api.nvim_set_hl(0, 'NvimTreeEndOfBuffer', { fg = "#181a1b" })
 
 vim.api.nvim_set_hl(0, 'TelescopeMatching', { fg = "#ea83a5" })
 vim.api.nvim_set_hl(0, 'TelescopeSelection', { link = "CursorLine" })
