@@ -142,7 +142,7 @@ vim.g.markdown_fenced_languages = { 'java', 'c', 'javascript' }
 -- diagnostics config
 vim.diagnostic.config({ virtual_text = {
   spacing = 4,
-  prefix = '' --ඞ
+  prefix = ' ' --ඞ
 }, update_in_insert = false, severity_sort = true, underline = true, sign = true })
 --vim.diagnostic.config({ virtual_text = false, update_in_insert = false, underline = true, sign = true })
 
