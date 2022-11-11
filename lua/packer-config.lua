@@ -40,7 +40,7 @@ require('packer').startup(
         -- }
 
         use { 'EdenEast/nightfox.nvim',
-             opt = true,
+            opt = true,
             config = function()
                 require('plugin.nightfox-config')
             end
@@ -59,7 +59,7 @@ require('packer').startup(
                 require('plugin.mellow-config')
             end
         }
-               -- use { "ellisonleao/gruvbox.nvim",
+        -- use { "ellisonleao/gruvbox.nvim",
         --     opt = true,
         --     --after = 'nvim-treesitter',
         --     config = function()
@@ -67,13 +67,13 @@ require('packer').startup(
         --     end
         -- }
 
-      --  use { 'Mofiqul/vscode.nvim',
-      --   --   opt = true,
-      --      --after = 'nvim-treesitter',
-      --      config = function()
-      --          require('plugin.vscode-config')
-      --      end
-      --  }
+        --  use { 'Mofiqul/vscode.nvim',
+        --   --   opt = true,
+        --      --after = 'nvim-treesitter',
+        --      config = function()
+        --          require('plugin.vscode-config')
+        --      end
+        --  }
 
         --use { 'pappasam/papercolor-theme-slim',
         --    config = function()
@@ -81,6 +81,13 @@ require('packer').startup(
         --    end
         --}
 
+        -- Git signs
+        use {
+            'lewis6991/gitsigns.nvim',
+            config = function ()
+                require('plugin.gitsigns-config')
+            end
+        }
         -- Add indentation guides even on blank lines
         use { 'lukas-reineke/indent-blankline.nvim',
             --event = 'UIEnter',
