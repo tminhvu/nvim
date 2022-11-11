@@ -198,5 +198,6 @@ vim.o.completeopt = 'menuone,noinsert,noselect'
 -- COLORSCHEME
 vim.o.termguicolors = true
 
+vim.lsp.set_log_level('off')
 
 -- vim: ts=2 sts=2 sw=2 et
