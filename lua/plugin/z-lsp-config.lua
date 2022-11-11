@@ -203,6 +203,34 @@ lspconfig.astro.setup({
     end,
 })
 
+-- tailwind
+lspconfig.tailwindcss.setup({
+    filetypes = { "js", "jsx", "html", "css", "sass", "scss", 'javascript', 'typescript', 'typescriptreact' },
+    root_dir = function(fname)
+        return lspconfig.util.root_pattern(
+            'tailwind.config.js',
+            'tailwind.config.ts',
+            'package.json',
+            'README.md',
+            '.git')(fname) or vim.fn.getcwd()
+    end,
+    settings = {
+        tailwindCSS = {
+            classAttributes = { "class", "className", "classList", "ngClass" },
+            lint = {
+                cssConflict = "warning",
+                invalidApply = "error",
+                invalidConfigPath = "error",
+                invalidScreen = "error",
+                invalidTailwindDirective = "error",
+                invalidVariant = "error",
+                recommendedVariantOrder = "warning"
+            },
+            validate = true
+        }
+    }
+})
+
 -- JsonLS for Json
 lspconfig.jsonls.setup {
     on_attach = on_attach,
