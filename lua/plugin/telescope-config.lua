@@ -25,7 +25,7 @@ require('telescope').setup {
         current_buffer_fuzzy_find = { sorting_strategy = 'ascending' },
         find_files = {
             hidden = true,
-            no_ignore = true
+            no_ignore = false
         }
     }
 }

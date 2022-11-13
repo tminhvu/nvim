@@ -47,6 +47,7 @@ require('packer').startup(
         }
 
         use { 'tminhvu/mellow.nvim',
+            opt = true,
             config = function()
                 require('plugin.mellow-config-tminhvu')
             end
@@ -57,6 +58,13 @@ require('packer').startup(
             opt = true,
             config = function()
                 require('plugin.mellow-config')
+            end
+        }
+
+
+        use { "catppuccin/nvim", as = "catppuccin",
+            config = function()
+                require('plugin.catppuccin-config')
             end
         }
         -- use { "ellisonleao/gruvbox.nvim",
@@ -84,7 +92,7 @@ require('packer').startup(
         -- Git signs
         use {
             'lewis6991/gitsigns.nvim',
-            config = function ()
+            config = function()
                 require('plugin.gitsigns-config')
             end
         }

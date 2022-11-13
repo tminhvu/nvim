@@ -140,19 +140,7 @@ lspconfig.tsserver.setup {
 -- ESLINT for JS diagnostics
 -- run "npm install eslint" and "eslint --init" on project's root first
 lspconfig.eslint.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    debounce_text_changes = 150,
-    filetypes = { 'javascript', 'typescript', 'typescriptreact' },
-    root_dir = function(fname)
-        return lspconfig.util.root_pattern(
-            'package.json',
-            'README.md',
-            '.git')(fname) or vim.fn.getcwd()
-    end,
-    single_file_support = true
 }
-
 -- HTML for html
 lspconfig.html.setup {
     on_attach = on_attach,
@@ -205,30 +193,9 @@ lspconfig.astro.setup({
 
 -- tailwind
 lspconfig.tailwindcss.setup({
-    filetypes = { "js", "jsx", "html", "css", "sass", "scss", 'javascript', 'typescript', 'typescriptreact' },
-    root_dir = function(fname)
-        return lspconfig.util.root_pattern(
-            'tailwind.config.js',
-            'tailwind.config.ts',
-            'package.json',
-            'README.md',
-            '.git')(fname) or vim.fn.getcwd()
-    end,
-    settings = {
-        tailwindCSS = {
-            classAttributes = { "class", "className", "classList", "ngClass" },
-            lint = {
-                cssConflict = "warning",
-                invalidApply = "error",
-                invalidConfigPath = "error",
-                invalidScreen = "error",
-                invalidTailwindDirective = "error",
-                invalidVariant = "error",
-                recommendedVariantOrder = "warning"
-            },
-            validate = true
-        }
-    }
+    on_attach = on_attach,
+    capabilities = capabilities,
+    debounce_text_changes = 150,
 })
 
 -- JsonLS for Json
