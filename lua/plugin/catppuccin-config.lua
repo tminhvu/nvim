@@ -3,7 +3,6 @@ require("catppuccin").setup({
     background = { light = "latte", dark = "mocha" },
     transparent_background = false,
     term_colors = true,
-    compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
     styles = {
         comments = { "italic" },
         properties = { "italic" },

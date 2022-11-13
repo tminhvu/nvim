@@ -47,7 +47,6 @@ require('packer').startup(
         }
 
         use { 'tminhvu/mellow.nvim',
-            opt = true,
             config = function()
                 require('plugin.mellow-config-tminhvu')
             end
@@ -63,6 +62,7 @@ require('packer').startup(
 
 
         use { "catppuccin/nvim", as = "catppuccin",
+            opt = true,
             config = function()
                 require('plugin.catppuccin-config')
             end
