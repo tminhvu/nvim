@@ -21,7 +21,7 @@ return require('packer').startup(
         }
 
         -- improve startup time
-        use {'lewis6991/impatient.nvim'}
+        use { 'lewis6991/impatient.nvim' }
 
         use { 'karb94/neoscroll.nvim',
             event = 'BufRead',
@@ -29,13 +29,6 @@ return require('packer').startup(
                 require('plugin.neoscroll-config')
             end
         }
-
-        -- use { 'Yazeed1s/minimal.nvim',
-        --     opt = true,
-        --     config = function()
-        --         require('plugin.minimal-config')
-        --     end
-        -- }
 
         use { 'EdenEast/nightfox.nvim',
             opt = true,
@@ -58,34 +51,25 @@ return require('packer').startup(
             end
         }
 
-
-        --    use { "catppuccin/nvim", as = "catppuccin",
-        --        opt = true,
-        --        config = function()
-        --            require('plugin.catppuccin-config')
-        --        end
-        --    }
-        -- use { "ellisonleao/gruvbox.nvim",
-        --     opt = true,
-        --     --after = 'nvim-treesitter',
-        --     config = function()
-        --         require('plugin.gruvbox-config')
-        --     end
-        -- }
-
-        --  use { 'Mofiqul/vscode.nvim',
-        --   --   opt = true,
-        --      --after = 'nvim-treesitter',
-        --      config = function()
-        --          require('plugin.vscode-config')
-        --      end
-        --  }
-
-        --use { 'pappasam/papercolor-theme-slim',
-        --    config = function()
-        --        require('plugin.papercolor-config')
-        --    end
-        --}
+--        use { "cpea2506/one_monokai.nvim",
+--            config = function()
+--                require("one_monokai").setup({
+--                    colors = {
+--                        bg = "#161819"
+--                    },
+--                    themes = function(colors)
+--                        return {
+--                        }
+--                    end,
+--                })
+--            end
+--        }
+        --        use { "ellisonleao/gruvbox.nvim",
+        --            opt = true,
+        --            config = function()
+        --                require('plugin.gruvbox-config')
+        --            end
+        --        }
 
         -- Git signs
         use {
