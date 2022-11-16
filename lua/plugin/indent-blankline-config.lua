@@ -21,7 +21,7 @@
 --  "operation_type",
 --}
 require('indent_blankline').setup {
-    indent_blankline_buftype_exclude = { "terminal", "nofile" },
+    buftype_exclude = { "terminal", "nofile" },
     filetype_exclude = {
         "help",
         "packer",
@@ -29,8 +29,9 @@ require('indent_blankline').setup {
         "Trouble",
     },
 
-    -- , '┆', '┊' ┆ ┇ ┊ ┋ ┆ ┇ ┊ ┋ '|', '¦', '┆', '┊'
-    char = "┊",
+    -- , '┆', '┊' ┆ ┇ ┊ ┋ ┆ ┇ ┊ ┋ '|', '¦', '┆', '┊' ⋅
+    --char = "┊",
     show_trailing_blankline_indent = false,
     use_treesitter = true,
+    space_char_blankline = ' '
 }

@@ -1,3 +1,6 @@
+-- Start lsp server, cmp
+vim.api.nvim_create_user_command('LspInit', 'PackerLoad nvim-lsp-installer', {})
+
 -- jump between buffer
 vim.api.nvim_set_keymap('n', '<C-b>', '<C-^>', {})
 
@@ -62,19 +65,15 @@ vim.api.nvim_set_keymap('n', '<M-h>', '<C-W><C-H>', {})
 vim.api.nvim_set_keymap('n', '<C-k>', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-j>', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- map W to write
+vim.api.nvim_create_user_command('W', 'write', {})
+vim.api.nvim_create_user_command('Wq', 'wq', {})
+vim.api.nvim_create_user_command('Wqa', 'wqa', {})
+vim.api.nvim_create_user_command('Q', 'q', {})
+vim.api.nvim_create_user_command('Qa', 'qa', {})
+
 -- OTHER
 vim.cmd [[
-    " map W to write
-    command W write
-    command Wq wq
-    command Wqa wqa
-    command Q q
-    command Qa qa
-
-    " to reload browser
-    autocmd FileType html nmap <C-p> :w<cr>:silent! !~/Scripts/ref<cr>
-    autocmd FileType css nmap <C-p> :w<cr>:silent! !~/Scripts/ref<cr>
-
     " to compile and run python code
     autocmd FileType python nnoremap <buffer> <F9> :update<bar>!python %<CR>
     autocmd FileType python inoremap <buffer> <F9> <Esc>:update<bar>!python %<CR>
@@ -107,21 +106,6 @@ vim.cmd [[
         split | term lua %
         startinsert
     endfunction
-
-    "to open lua help
-    command! Help :split $HOME/.config/nvim/help
-
-    " to write markdown files
-""    autocmd FileType markdown nnoremap <Space><Space> ?* <Enter>lxf*hx/<++><Enter>:noh<Enter>c4l
-""
-""    autocmd FileType markdown inoremap ;b **  ** <++><Esc>7hi
-""    autocmd FileType markdown nnoremap ;b Bi**<Esc>Ea**<Esc>
-""    autocmd FileType markdown xnoremap ;b di****<Esc>hP
-""
-""    autocmd FileType markdown inoremap ;i *  * <++><Esc>6hi
-""    autocmd FileType markdown nnoremap ;i Bi*<Esc>Ea*<Esc>
-""    autocmd FileType markdown xnoremap ;i di**<Esc>P
-
 ]]
 
 -- Diagnostic keymaps

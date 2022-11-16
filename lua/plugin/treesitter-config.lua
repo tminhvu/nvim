@@ -4,14 +4,7 @@ require('nvim-treesitter.configs').setup {
     sync_install = false,
     highlight = {
         enable = true, -- false will disable the whole extension
-        additional_vim_regex_highlighting = false
-    },
-    rainbow = {
-        enable = true,
-        extended_mode = false,
-        disable = {
-            "java"
-        }
+        additional_vim_regex_highlighting = true
     },
     incremental_selection = {
         enable = false,

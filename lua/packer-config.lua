@@ -10,11 +10,10 @@
 --end
 --
 --local packer_bootstrap = ensure_packer()
-
 vim.cmd [[packadd packer.nvim]]
 
 -- install plugins
-require('packer').startup(
+return require('packer').startup(
     function(use)
         use {
             'wbthomason/packer.nvim', -- Package manager
@@ -22,11 +21,10 @@ require('packer').startup(
         }
 
         -- improve startup time
-        use 'lewis6991/impatient.nvim'
+        use {'lewis6991/impatient.nvim'}
 
         use { 'karb94/neoscroll.nvim',
-            opt = true,
-            event = 'CursorMoved',
+            event = 'BufRead',
             config = function()
                 require('plugin.neoscroll-config')
             end
@@ -61,12 +59,12 @@ require('packer').startup(
         }
 
 
-        use { "catppuccin/nvim", as = "catppuccin",
-            opt = true,
-            config = function()
-                require('plugin.catppuccin-config')
-            end
-        }
+        --    use { "catppuccin/nvim", as = "catppuccin",
+        --        opt = true,
+        --        config = function()
+        --            require('plugin.catppuccin-config')
+        --        end
+        --    }
         -- use { "ellisonleao/gruvbox.nvim",
         --     opt = true,
         --     --after = 'nvim-treesitter',
@@ -92,15 +90,16 @@ require('packer').startup(
         -- Git signs
         use {
             'lewis6991/gitsigns.nvim',
+            event = 'BufRead',
             config = function()
                 require('plugin.gitsigns-config')
             end
         }
+
         -- Add indentation guides even on blank lines
         use { 'lukas-reineke/indent-blankline.nvim',
             --event = 'UIEnter',
             after = 'nvim-treesitter',
-            --opt = true,
             config = function()
                 require('plugin.indent-blankline-config')
             end
@@ -108,7 +107,8 @@ require('packer').startup(
 
         -- Code completion
         use { 'hrsh7th/nvim-cmp',
-            event = 'InsertEnter',
+            --event = 'InsertEnter',
+            after = 'nvim-lsp-installer',
             wants = { 'LuaSnip', 'lspkind.nvim' },
             config = function()
                 require('plugin.y-cmp-config')
@@ -127,14 +127,15 @@ require('packer').startup(
         use { 'hrsh7th/cmp-path', after = 'nvim-cmp' }
         use { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' }
         use { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' }
+        use { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' }
 
         -- LSP
         use {
             "williamboman/nvim-lsp-installer",
-            event = 'VimEnter'
+            --event = 'VimEnter',
+            opt = true
         }
 
-        use { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-lsp-installer' }
         use {
             "neovim/nvim-lspconfig",
             after = 'cmp-nvim-lsp',
@@ -143,12 +144,10 @@ require('packer').startup(
             end
         }
 
-        -- Hightlight matching brackets
-        use { 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter' }
         -- Hightlight and parser
         use { 'nvim-treesitter/nvim-treesitter',
             --commit = 'e53950f646b0c11624280ee7c4eff97a9e0904f1',
-            event = "VimEnter",
+            event = "BufRead",
             config = function()
                 require('plugin.treesitter-config')
             end,
@@ -164,7 +163,6 @@ require('packer').startup(
 
         -- color preview
         use { 'norcalli/nvim-colorizer.lua',
-            ft = { 'html', 'css' },
             cmd = { 'ColorizerAttachToBuffer' },
         }
 

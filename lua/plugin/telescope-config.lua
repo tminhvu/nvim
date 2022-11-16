@@ -1,6 +1,6 @@
 require('telescope').setup {
     defaults = {
-        selection_caret = ' > ',
+        selection_caret = '  > ',
         file_ignore_patterns = { "^node_modules/", "^.git/", "^.cache/", "^bin/", "%.pdf", "%.mkv",
             "%.mp4", "%.zip" },
         previewer = true,
