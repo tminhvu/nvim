@@ -51,19 +51,12 @@ return require('packer').startup(
             end
         }
 
---        use { "cpea2506/one_monokai.nvim",
---            config = function()
---                require("one_monokai").setup({
---                    colors = {
---                        bg = "#161819"
---                    },
---                    themes = function(colors)
---                        return {
---                        }
---                    end,
---                })
---            end
---        }
+        -- use { "cpea2506/one_monokai.nvim",
+        --     config = function()
+        --         require('plugin.one_monokai')
+        --     end
+        -- }
+
         --        use { "ellisonleao/gruvbox.nvim",
         --            opt = true,
         --            config = function()
@@ -116,7 +109,7 @@ return require('packer').startup(
         -- LSP
         use {
             "williamboman/nvim-lsp-installer",
-            --event = 'VimEnter',
+            event = 'BufRead',
             opt = true
         }
 
