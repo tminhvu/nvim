@@ -30,12 +30,12 @@ return require('packer').startup(
             end
         }
 
-        use { 'EdenEast/nightfox.nvim',
-            opt = true,
-            config = function()
-                require('plugin.nightfox-config')
-            end
-        }
+        --        use { 'EdenEast/nightfox.nvim',
+        --            opt = true,
+        --            config = function()
+        --                require('plugin.nightfox-config')
+        --            end
+        --        }
 
         use { 'tminhvu/mellow.nvim',
             config = function()

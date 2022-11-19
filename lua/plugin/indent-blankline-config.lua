@@ -30,7 +30,7 @@ require('indent_blankline').setup {
     },
 
     -- , '┆', '┊' ┆ ┇ ┊ ┋ ┆ ┇ ┊ ┋ '|', '¦', '┆', '┊' ⋅
-    char = "┊",
+    char = "│",
     show_trailing_blankline_indent = false,
     use_treesitter = true,
     space_char_blankline = ' '
