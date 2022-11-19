@@ -74,9 +74,6 @@ lspconfig.jdtls.setup {
             }
         }
     },
-    handlers = {
-        ['$/progress'] = function() end
-    }
 }
 
 -- BashLS for bash

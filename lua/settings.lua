@@ -1,5 +1,4 @@
 -- DISABLE UNUSED FEATURES
-
 local disabled_built_ins = {
   "netrw",
   "netrwPlugin",
@@ -18,7 +17,6 @@ local disabled_built_ins = {
   "logipat",
   "rrhelper",
   "spellfile_plugin",
-  "matchparen",
   "matchit"
 }
 for _, plugin in pairs(disabled_built_ins) do

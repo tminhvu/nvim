@@ -20,6 +20,11 @@ require('telescope').setup {
         },
         selection_strategy = "reset",
         sorting_strategy = "ascending",
+        mappings = {
+            n = {
+                ['<c-d>'] = require('telescope.actions').delete_buffer
+            },
+        }
     },
     pickers = {
         current_buffer_fuzzy_find = { sorting_strategy = 'ascending' },
