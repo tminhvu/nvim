@@ -138,10 +138,23 @@ vim.g.markdown_fenced_languages = { 'java', 'c', 'javascript' }
 --}
 
 -- diagnostics config
-vim.diagnostic.config({ virtual_text = {
-  spacing = 4,
-  prefix = ' ' --ඞ
-}, update_in_insert = false, severity_sort = true, underline = true, sign = true })
+vim.diagnostic.config({
+  virtual_text = {
+    spacing = 4,
+    prefix = ' ' --ඞ
+  },
+  update_in_insert = false,
+  severity_sort = true,
+  underline = {
+    severity = {
+      vim.diagnostic.severity.ERROR,
+      vim.diagnostic.severity.WARN,
+      vim.diagnostic.severity.INFO,
+      vim.diagnostic.severity.HINT
+    }
+  },
+  sign = true
+})
 --vim.diagnostic.config({ virtual_text = false, update_in_insert = false, underline = true, sign = true })
 
 -- diagnostic sign 
