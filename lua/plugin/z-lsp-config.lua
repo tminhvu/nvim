@@ -31,7 +31,6 @@ capabilities = require('cmp_nvim_lsp').default_capabilities()
 lspconfig.clangd.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    debounce_text_changes = 150,
     --cmd = { "clangd" },
     filetypes = { "c", "cpp", "objc", "objcpp" },
     root_dir = function(fname)
@@ -54,7 +53,6 @@ lspconfig.clangd.setup {
 lspconfig.jdtls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    debounce_text_changes = 150,
     root_dir = function(fname)
         return lspconfig.util.root_pattern(
             'src',
@@ -80,7 +78,6 @@ lspconfig.jdtls.setup {
 lspconfig.bashls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    debounce_text_changes = 150,
     cmd = { "bash-language-server", "start" },
     cmd_env = {
         GLOB_PATTERN = "*@(.sh|.inc|.bash|.command)"
@@ -96,7 +93,6 @@ lspconfig.bashls.setup {
 lspconfig.cssls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    debounce_text_changes = 150,
     -- cmd = { "vscode-css-language-server", "--stdio" },
     filetypes = { "css", "scss", "less" },
     root_dir = function(fname)
@@ -120,11 +116,12 @@ lspconfig.cssls.setup {
 }
 
 -- TSSERVER for Javascript and Typescript
+--https://github.com/Microsoft/typescript-styled-plugin for styled components
 lspconfig.tsserver.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    debounce_text_changes = 150,
-    filetypes = { 'javascript', 'typescript', 'typescriptreact' },
+    filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+    cmd = { "typescript-language-server", "--stdio" },
     root_dir = function(fname)
         return lspconfig.util.root_pattern(
             'package.json',
@@ -137,12 +134,24 @@ lspconfig.tsserver.setup {
 -- ESLINT for JS diagnostics
 -- run "npm install eslint" and "eslint --init" on project's root first
 lspconfig.eslint.setup {
+    --autostart = false,
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+    root_dir = function(fname)
+        return lspconfig.util.root_pattern(
+            '.eslintrc.json',
+            'package.json',
+            'README.md',
+            '.git')(fname) or vim.fn.getcwd()
+    end,
+    single_file_support = true
 }
+
 -- HTML for html
 lspconfig.html.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    debounce_text_changes = 150,
     -- cmd = { "vscode-html-language-server", "--stdio" },
     filetypes = { "html" }, -- "javascript", "typescript", "typescriptreact" },
     init_options = {
@@ -190,16 +199,15 @@ lspconfig.astro.setup({
 
 -- tailwind
 lspconfig.tailwindcss.setup({
+    autostart = false,
     on_attach = on_attach,
     capabilities = capabilities,
-    debounce_text_changes = 150,
 })
 
 -- JsonLS for Json
 lspconfig.jsonls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    debounce_text_changes = 150,
     filetypes = { 'json' },
     root_dir = function(fname)
         return lspconfig.util.root_pattern(
@@ -213,7 +221,6 @@ lspconfig.jsonls.setup {
 lspconfig.marksman.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    debounce_text_changes = 150,
     root_dir = function(fname)
         return lspconfig.util.root_pattern(
             'src',

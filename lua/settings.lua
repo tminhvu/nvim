@@ -120,7 +120,7 @@ vim.o.cursorline = true
 --vim.o.showtabline = 2
 
 -- highlight code blocks in markdown
-vim.g.markdown_fenced_languages = { 'java', 'c', 'javascript' }
+vim.g.markdown_fenced_languages = { 'java', 'c', 'javascript', 'html', 'lua' }
 
 ---- diagnostics config
 --vim.diagnostic.config({ virtual_text = {

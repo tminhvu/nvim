@@ -2,10 +2,10 @@ require('nightfox').setup({
     options = {
         styles = {
             comments = "italic",
-            keywords = 'bold',
+            keywords = 'bold,italic',
             strings = "italic",
             functions = "bold",
-            constants = "bold",
+            constants = "italic,bold",
             types = "bold",
         },
         modules = {
@@ -14,13 +14,16 @@ require('nightfox').setup({
             nvimtree = true,
             telescope = true,
             treesitter = true,
-            --diagnostic = true,
-            tsrainbow = true
+            diagnostic = true,
+            --tsrainbow = true
+            gitsigns = true
         },
         transparent = false,
         inverse = {
             visual = false
         },
+    },
+    palettes = {
     },
     groups = {
         all = {
@@ -29,10 +32,10 @@ require('nightfox').setup({
             DiagnosticWarn = { style = 'bold' },
             DiagnosticHint = { style = 'bold' },
             DiagnosticInfo = { style = 'bold' },
-            DiagnosticVirtualTextError = { style = 'italic,underline' },
-            DiagnosticVirtualTextWarn = { style = 'italic,underline' },
-            DiagnosticVirtualTextHint = { style = 'italic,underline' },
-            DiagnosticVirtualTextInfo = { style = 'italic,underline' },
+            DiagnosticVirtualTextError = { style = 'italic,bold,underline', fg = '#738091' },
+            DiagnosticVirtualTextWarn = { style = 'italic,bold,underline', fg = '#738091' },
+            DiagnosticVirtualTextHint = { style = 'italic,bold,underline', fg = '#738091' },
+            DiagnosticVirtualTextInfo = { style = 'italic,bold,underline', fg = '#738091' },
         },
         terafox = {
             CursorLineNr = { fg = "#fda47f", bg = "#254147", style = 'bold' },
@@ -53,7 +56,7 @@ require('nightfox').setup({
         },
         carbonfox = {
             CursorLineNr = { fg = "#be95ff", bg = "#353535", style = 'bold' },
-            StatusLine = { fg = "#161616", bg = "#519aba", style = 'bold' },
+            StatusLine = { fg = "#0f1c1e", bg = "#71839b", style = 'bold' },
             WinBar = { fg = "#3ddbd9", style = 'bold' },
             WinBarError = { fg = "#ee5395", style = 'bold,italic' },
             DiagnosticWarn = { fg = '#ffa61a', style = 'bold' },

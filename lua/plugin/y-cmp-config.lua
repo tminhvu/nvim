@@ -1,6 +1,5 @@
----@diagnostic disable: need-check-nil
--- luasnip setup
 local luasnip = require 'luasnip'
+
 require("luasnip/loaders/from_vscode").lazy_load { paths = { "~/.config/nvim/snippets" } }
 
 local cmp = require('cmp')
@@ -14,8 +13,8 @@ cmp.setup {
         comparators = {
             cmp.config.compare.exact,
             cmp.config.compare.recently_used,
-            cmp.config.compare.locality,
             cmp.config.compare.offset,
+            cmp.config.compare.locality,
             cmp.config.compare.kind,
             cmp.config.compare.score,
             cmp.config.compare.sort_text,

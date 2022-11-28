@@ -23,6 +23,7 @@ return require('packer').startup(
         -- improve startup time
         use { 'lewis6991/impatient.nvim' }
 
+        -- smooth scrolls
         use { 'karb94/neoscroll.nvim',
             event = 'BufRead',
             config = function()
@@ -30,13 +31,15 @@ return require('packer').startup(
             end
         }
 
+        -- color schemes
         use { 'EdenEast/nightfox.nvim',
+            opt = true,
             config = function()
                 require('plugin.nightfox-config')
             end
         }
 
-        use { 'tminhvu/mellow.nvim',
+        use { '~/Dev/lua/mellow.nvim',
             opt = true,
             config = function()
                 require('plugin.mellow-config-tminhvu')
@@ -51,18 +54,18 @@ return require('packer').startup(
             end
         }
 
-        -- use { "cpea2506/one_monokai.nvim",
-        --     config = function()
-        --         require('plugin.one_monokai')
-        --     end
-        -- }
+        use { 'sainnhe/gruvbox-material',
+            opt = true,
+            config = function()
+                require('plugin.gruvbox-material-config')
+            end
+        }
 
-        --        use { "ellisonleao/gruvbox.nvim",
-        --            opt = true,
-        --            config = function()
-        --                require('plugin.gruvbox-config')
-        --            end
-        --        }
+        use { "catppuccin/nvim", as = "catppuccin",
+            config = function()
+                require('plugin.catppuccin-config')
+            end
+        }
 
         -- Git signs
         use {
@@ -109,8 +112,7 @@ return require('packer').startup(
         -- LSP
         use {
             "williamboman/nvim-lsp-installer",
-            event = 'BufRead',
-            opt = true
+            event = 'UIEnter',
         }
 
         use {
@@ -128,6 +130,9 @@ return require('packer').startup(
             config = function()
                 require('plugin.treesitter-config')
             end,
+        }
+        use { 'nvim-treesitter/playground',
+            cmd = 'TSHighlightCapturesUnderCursor'
         }
 
         -- generate doc

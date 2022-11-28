@@ -7,12 +7,19 @@
     "contributes": {
         "snippets": [
             {
-                "language": "markdown",
-                "path": "./markdown.json"
+                "language": [
+                    "javascript",
+                    "javascriptreact"
+                ],
+                "path": "./javascript.json"
             },
             {
-                "language": "javascript",
-                "path": "./javascript.json"
+                "language": "javascriptreact",
+                "path": "./react.json"
+            },
+            {
+                "language": "markdown",
+                "path": "./markdown.json"
             },
             {
                 "language": "html",
