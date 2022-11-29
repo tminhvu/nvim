@@ -112,7 +112,7 @@ return require('packer').startup(
         -- LSP
         use {
             "williamboman/nvim-lsp-installer",
-            event = 'UIEnter',
+            event = 'BufRead',
         }
 
         use {
