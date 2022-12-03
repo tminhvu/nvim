@@ -32,34 +32,34 @@ return require('packer').startup(
         }
 
         -- color schemes
-        use { 'EdenEast/nightfox.nvim',
-            opt = true,
-            config = function()
-                require('plugin.nightfox-config')
-            end
-        }
+        -- use { 'EdenEast/nightfox.nvim',
+        --     opt = true,
+        --     config = function()
+        --         require('plugin.nightfox-config')
+        --     end
+        -- }
 
-        use { '~/Dev/lua/mellow.nvim',
-            opt = true,
-            config = function()
-                require('plugin.mellow-config')
-            end
-        }
+        -- use { '~/Dev/lua/mellow.nvim',
+        --     opt = true,
+        --     config = function()
+        --         require('plugin.mellow-config')
+        --     end
+        -- }
 
-        use { 'kvrohit/mellow.nvim',
-            as = 'mellow.nvim-original',
-            opt = true,
-            config = function()
-                require('plugin.mellow-original-config')
-            end
-        }
+        -- use { 'kvrohit/mellow.nvim',
+        --     as = 'mellow.nvim-original',
+        --     opt = true,
+        --     config = function()
+        --         require('plugin.mellow-original-config')
+        --     end
+        -- }
 
-        use { 'sainnhe/gruvbox-material',
-            opt = true,
-            config = function()
-                require('plugin.gruvbox-material-config')
-            end
-        }
+        -- use { 'sainnhe/gruvbox-material',
+        --     opt = true,
+        --     config = function()
+        --         require('plugin.gruvbox-material-config')
+        --     end
+        -- }
 
         use { "catppuccin/nvim", as = "catppuccin",
             opt = true,
