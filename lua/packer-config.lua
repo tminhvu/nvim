@@ -92,6 +92,14 @@ return require('packer').startup(
             end
         }
 
+        -- Code symbols outline
+        use { 'simrat39/symbols-outline.nvim',
+            cmd = 'SymbolsOutline',
+            config = function()
+                require('plugin.symbols-outline-config')
+            end
+        }
+
         -- Code completion
         use { 'hrsh7th/nvim-cmp',
             --event = 'InsertEnter',
@@ -119,7 +127,7 @@ return require('packer').startup(
         -- LSP
         use {
             "williamboman/nvim-lsp-installer",
-            event = 'BufRead',
+            event = 'UIEnter',
         }
 
         use {
