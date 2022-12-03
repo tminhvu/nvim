@@ -1,19 +1,19 @@
 require("catppuccin").setup({
     flavour = "mocha", -- Can be one of: latte, frappe, macchiato, mocha
-    transparent_background = false,
+    --transparent_background = false,
     term_colors = true,
     styles = {
         comments = { "italic" },
-        properties = { "italic" },
+        properties = {},
         functions = { "bold" },
-        keywords = { "bold,italic" },
-        operators = { "bold,italic" },
-        conditionals = { "italic" },
-        loops = { "italic" },
-        booleans = { "bold,italic" },
+        keywords = { "bold" },
+        operators = { "bold" },
+        conditionals = { "bold" },
+        loops = { "bold" },
+        booleans = { "bold" },
         numbers = {},
-        types = { 'bold,italic' },
-        strings = { 'italic' },
+        types = { 'bold' },
+        strings = {},
         variables = {},
     },
     integrations = {
@@ -82,6 +82,7 @@ require("catppuccin").setup({
                 WinBarNC = { bg = cp.none, fg = cp.overlay1 },
                 WinBarError = { bg = cp.none, fg = cp.red, style = { 'bold', 'italic' } },
                 StatusLine = { fg = cp.mantle, bg = cp.overlay0, style = { 'bold' } },
+                NvimTreeOpenedFile = { fg = cp.green, style = { 'bold' } },
 
                 -- For native lsp configs.
                 DiagnosticVirtualTextError = { bg = cp.none, fg = cp.surface2 },

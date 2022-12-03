@@ -5,6 +5,7 @@ require 'nvim-tree'.setup {
         signcolumn = "yes",
         --adaptive_size = true
         side = "left",
+        hide_root_folder = true
     },
     diagnostics = {
         enable = true,

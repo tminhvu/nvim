@@ -42,7 +42,7 @@ return require('packer').startup(
         use { '~/Dev/lua/mellow.nvim',
             opt = true,
             config = function()
-                require('plugin.mellow-config-tminhvu')
+                require('plugin.mellow-config')
             end
         }
 
@@ -50,7 +50,7 @@ return require('packer').startup(
             as = 'mellow.nvim-original',
             opt = true,
             config = function()
-                require('plugin.mellow-config')
+                require('plugin.mellow-original-config')
             end
         }
 
@@ -62,8 +62,15 @@ return require('packer').startup(
         }
 
         use { "catppuccin/nvim", as = "catppuccin",
+            opt = true,
             config = function()
                 require('plugin.catppuccin-config')
+            end
+        }
+
+        use { "~/Dev/lua/darkplus.nvim",
+            config = function()
+                vim.cmd [[colorscheme darkplus]]
             end
         }
 

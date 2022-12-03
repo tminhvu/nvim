@@ -120,7 +120,7 @@ vim.o.cursorline = true
 --vim.o.showtabline = 2
 
 -- highlight code blocks in markdown
-vim.g.markdown_fenced_languages = { 'java', 'c', 'javascript', 'html', 'lua' }
+vim.g.markdown_fenced_languages = { 'java', 'c', 'javascript', 'lua', 'html', 'css' }
 
 ---- diagnostics config
 --vim.diagnostic.config({ virtual_text = {
@@ -141,7 +141,7 @@ vim.g.markdown_fenced_languages = { 'java', 'c', 'javascript', 'html', 'lua' }
 vim.diagnostic.config({
   virtual_text = {
     spacing = 4,
-    prefix = ' ' --ඞ
+    prefix = '' --ඞ
   },
   update_in_insert = false,
   severity_sort = true,
