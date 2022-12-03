@@ -30,7 +30,7 @@ require("impatient")
 -- SETTINGS
 
 -- Allow cursor to be placed at empty space
-vim.o.virtualedit = 'all'
+-- vim.o.virtualedit = 'all'
 
 -- Allows open another buffer on unwritten buffers
 vim.o.hidden = true
