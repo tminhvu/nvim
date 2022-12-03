@@ -22,7 +22,7 @@ require('telescope').setup {
         sorting_strategy = "ascending",
         mappings = {
             n = {
-                ['<c-d>'] = require('telescope.actions').delete_buffer
+                ['dd'] = require('telescope.actions').delete_buffer
             },
         }
     },
