@@ -5,61 +5,6 @@ local init_group = vim.api.nvim_create_augroup('reset_group', {
     clear = false,
 })
 
---local modes = {
---    ["n"] = "NORMAL",
---    ["no"] = "NORMAL",
---    ["v"] = "VISUAL",
---    ["V"] = "VISUAL LINE",
---    [""] = "VISUAL BLOCK",
---    ["s"] = "SELECT",
---    ["S"] = "SELECT LINE",
---    [""] = "SELECT BLOCK",
---    ["i"] = "INSERT",
---    ["ic"] = "INSERT",
---    ["R"] = "REPLACE",
---    ["Rv"] = "VISUAL REPLACE",
---    ["c"] = "COMMAND",
---    ["cv"] = "VIM EX",
---    ["ce"] = "EX",
---    ["r"] = "PROMPT",
---    ["rm"] = "MOAR",
---    ["r?"] = "CONFIRM",
---    ["!"] = "SHELL",
---    ["t"] = "TERMINAL",
---}
---
---local function get_mode()
---    local current_mode = vim.api.nvim_get_mode().mode
---    return string.format("  %s", modes[current_mode]):upper()
---end
---
---local function update_mode_colors()
---    local current_mode = vim.api.nvim_get_mode().mode
---    local mode_color = "%#NormalMode#"
---    if current_mode == "n" then
---        mode_color = "%#NormalMode#"
---    elseif current_mode == "i" or current_mode == "ic" then
---        mode_color = "%#InsertMode#"
---    elseif current_mode == "v" or current_mode == "V" or current_mode == "" then
---        mode_color = "%#VisualMode#"
---    elseif current_mode == "R" then
---        mode_color = "%#ReplaceMode#"
---    elseif current_mode == "c" then
---        mode_color = "%#CommandMode#"
---    elseif current_mode == "t" then
---        mode_color = "%#TerminaMode#"
---    end
---    return mode_color
---end
---
---vim.api.nvim_create_autocmd({ 'BufEnter', 'ModeChanged' }, {
---    callback = function()
---        vim.b.mode_color = update_mode_colors()
---        vim.b.mode = get_mode()
---    end,
---    group = init_group
---})
-
 vim.api.nvim_create_autocmd({ 'VimEnter' }, {
     callback = function()
         -- GIT
@@ -98,23 +43,24 @@ vim.api.nvim_create_autocmd({ 'VimEnter' }, {
 
 vim.api.nvim_create_autocmd({ 'TermEnter' }, {
     callback = function()
-            vim.opt_local.winbar = '   Terminal '
-            vim.opt_local.number=false
-        -- 
+        vim.opt_local.winbar = '   Terminal '
+        vim.opt_local.number = false
+        --      
     end,
     group = init_group
 })
 
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
     callback = function()
+        local filetype = vim.bo.filetype
+
         -- File icon
         if M.icon then
-            vim.b.file_icon = require("nvim-web-devicons").get_icon_by_filetype(vim.bo.filetype, { default = true })
+            vim.b.file_icon = require("nvim-web-devicons").get_icon_by_filetype(filetype, { default = true })
         else
             vim.b.file_icon = ''
         end
 
-        local filetype = vim.bo.filetype
 
         if filetype == 'NvimTree' then
             vim.opt_local.winbar = '   NVIMTREE'
@@ -123,7 +69,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter' }, {
     end,
     group = init_group
 })
---[[
+
 vim.api.nvim_create_autocmd({ 'LspAttach' }, {
     callback = function()
         local lsp = vim.lsp.get_active_clients()
@@ -131,16 +77,16 @@ vim.api.nvim_create_autocmd({ 'LspAttach' }, {
 
         if lsp ~= nil then
             for l = 1, #lsp do
-                names = names .. '  ' .. lsp[l].name
+                --names = names .. '  ' .. lsp[l].name
+                names = names .. lsp[l].name .. ' '
             end
-            names = names .. ' '
         end
 
-        vim.b.lsp_server = names
+        print(' ' .. names .. 'started')
     end,
     group = init_group
 })
---]]
+
 vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'CursorHold' }, {
     callback = function()
         -- ERROR
