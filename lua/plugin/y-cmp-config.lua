@@ -13,10 +13,10 @@ cmp.setup {
         comparators = {
             cmp.config.compare.exact,
             cmp.config.compare.recently_used,
-            cmp.config.compare.offset,
-            cmp.config.compare.locality,
             cmp.config.compare.kind,
             cmp.config.compare.score,
+            cmp.config.compare.locality,
+            cmp.config.compare.offset,
             cmp.config.compare.sort_text,
             cmp.config.compare.length,
             cmp.config.compare.order,
@@ -104,7 +104,3 @@ cmp.setup.cmdline(':', {
         { name = 'cmdline' }
     }
 })
--- cmp highlinght
---[[vim.cmd [[
-highlight! default link CmpItemKind CmpItemMenuDefault
-]] --]]
