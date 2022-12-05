@@ -39,12 +39,12 @@ return require('packer').startup(
         --     end
         -- }
 
-        -- use { '~/Dev/lua/mellow.nvim',
-        --     opt = true,
-        --     config = function()
-        --         require('plugin.mellow-config')
-        --     end
-        -- }
+        use { '~/Dev/lua/mellow.nvim',
+            opt = true,
+            config = function()
+                require('plugin.mellow-config')
+            end
+        }
 
         -- use { 'kvrohit/mellow.nvim',
         --     as = 'mellow.nvim-original',
