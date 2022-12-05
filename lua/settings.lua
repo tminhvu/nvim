@@ -144,16 +144,21 @@ vim.g.markdown_fenced_languages = { 'java', 'c', 'javascript', 'lua', 'html', 'c
 vim.diagnostic.config({
   virtual_text = {
     spacing = 4,
-    prefix = '' --ඞ
+    prefix = '  ', --ඞ
+    suffix = ' ',
+    severity = {
+      max = vim.diagnostic.severity.ERROR,
+      min = vim.diagnostic.severity.WARN,
+      --      vim.diagnostic.severity.INFO,
+      --      vim.diagnostic.severity.HINT
+    }
   },
   update_in_insert = false,
   severity_sort = true,
   underline = {
     severity = {
-      vim.diagnostic.severity.ERROR,
-      vim.diagnostic.severity.WARN,
-      vim.diagnostic.severity.INFO,
-      vim.diagnostic.severity.HINT
+      max = vim.diagnostic.severity.ERROR,
+      min = vim.diagnostic.severity.WARN
     }
   },
   sign = true
@@ -176,7 +181,7 @@ local signs = {
 
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
 end
 
 -- split border
