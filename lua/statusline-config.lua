@@ -82,7 +82,7 @@ vim.api.nvim_create_autocmd({ 'LspAttach' }, {
             end
         end
 
-        print(' ' .. names .. 'started')
+        vim.b.lsp_server = ' ' .. names
     end,
     group = init_group
 })
@@ -93,7 +93,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'CursorH
         local num_errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
         if num_errors > 0 then
             --vim.b.errors = '   ' .. num_errors
-            vim.b.errors = num_errors .. 'E'
+            vim.b.errors = num_errors .. 'E '
             vim.b.winbar_color = '%#WinBarError#'
         else
             vim.b.errors = ''
@@ -104,7 +104,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'CursorH
         local num_warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
         if num_warnings > 0 then
             --vim.b.warnings = '   ' .. num_warnings
-            vim.b.warnings = '  ' .. num_warnings .. 'W'
+            vim.b.warnings = num_warnings .. 'W '
         else
             vim.b.warnings = ''
         end
@@ -112,7 +112,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'CursorH
         -- HINT
         local num_hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
         if num_hints > 0 then
-            vim.b.hints = '  ' .. num_hints .. 'H'
+            vim.b.hints = num_hints .. 'H '
             --vim.b.hints = '   ' .. num_hints
         else
             vim.b.hints = ''
@@ -121,7 +121,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'CursorH
         -- INFO
         local num_infos = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
         if num_infos > 0 then
-            vim.b.infos = '  ' .. num_infos .. 'I'
+            vim.b.infos = num_infos .. 'I '
             --vim.b.infos = '   ' .. num_infos
         else
             vim.b.infos = ''
@@ -137,5 +137,5 @@ vim.opt.winbar = [[%{%get(b:, "winbar_color", "")%} %{get(b:, "file_icon", "")} 
 
 --vim.opt.statusline = [[%#StatusLine# %{get(g:, "branch_name", "")} %{get(b:, "lsp_server", "")}%{get(b:, "errors", "")}%{get(b:, "warnings", "")}%{get(b:, "hints", "")}%{get(b:, "infos", "")}%=  %c [%{get(b:, "file_icon", "")} %Y]  %l/%L ]]
 
-vim.opt.statusline = '  %{get(g:, "branch_name", "")} %{get(b:, "lsp_server", "")}%=%{get(b:, "errors", "")}%#StatusLine#%{get(b:, "warnings", "")}%{get(b:, "hints", "")}%{get(b:, "infos", "")}  %Y  Col %c, Ln %l/%L  '
+vim.opt.statusline = '  %{get(g:, "branch_name", "")}  %{get(b:, "lsp_server", "")} %{get(b:, "errors", "")}%{get(b:, "warnings", "")}%{get(b:, "hints", "")}%{get(b:, "infos", "")} %= %Y  Col %c, Ln %l/%L  '
 return M
