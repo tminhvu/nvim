@@ -11,14 +11,17 @@ require 'nvim-tree'.setup {
         enable = true,
         show_on_dirs = true,
         icons = {
-           -- hint = "",
-           -- info = "",
-           -- warning = "",
-           -- error = "",
+            -- hint = "",
+            -- info = "",
+            -- warning = "",
+            -- error = "",
             hint = "H",
             info = "I",
             warning = "W",
             error = "E",
+        }, severity = {
+            min = vim.diagnostic.severity.WARN,
+            max = vim.diagnostic.severity.ERROR
         },
     },
     actions = {
