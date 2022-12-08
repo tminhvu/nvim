@@ -56,7 +56,10 @@ vim.api.nvim_create_autocmd({ 'BufEnter' }, {
 
         -- File icon
         if M.icon then
-            vim.b.file_icon = require("nvim-web-devicons").get_icon_by_filetype(filetype, { default = true })
+            -- local file_icon_color
+            vim.b.file_icon, _ = require("nvim-web-devicons").get_icon_by_filetype(filetype,
+                { default = true })
+            --vim.b.file_icon_color = '%#' .. file_icon_color .. '#'
         else
             vim.b.file_icon = ''
         end
@@ -133,7 +136,8 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'CursorH
 
 vim.opt.laststatus = 3 -- use global statusline
 
-vim.opt.winbar = [[%{%get(b:, "winbar_color", "")%} %{get(b:, "file_icon", "")} %t %M%h%w%r ]]
+--vim.opt.winbar = [[ %{%get(b:, "file_icon_color", "")%}%{get(b:, "file_icon", "")}%{%get(b:, "winbar_color", "")%} %t %M%h%w%r ]]
+vim.opt.winbar = [[ %{%get(b:, "winbar_color", "")%}%{get(b:, "file_icon", "")} %t %M%h%w%r ]]
 
 --vim.opt.statusline = [[%#StatusLine# %{get(g:, "branch_name", "")} %{get(b:, "lsp_server", "")}%{get(b:, "errors", "")}%{get(b:, "warnings", "")}%{get(b:, "hints", "")}%{get(b:, "infos", "")}%=  %c [%{get(b:, "file_icon", "")} %Y]  %l/%L ]]
 
