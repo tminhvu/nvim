@@ -144,8 +144,8 @@ vim.g.markdown_fenced_languages = { 'java', 'c', 'javascript', 'lua', 'html', 'c
 vim.diagnostic.config({
   virtual_text = {
     spacing = 4,
-    prefix = '  ', --ඞ
-    suffix = ' ',
+    prefix = ' ', --ඞ
+    suffix = '',
     severity = {
       max = vim.diagnostic.severity.ERROR,
       min = vim.diagnostic.severity.WARN,
