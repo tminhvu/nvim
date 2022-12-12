@@ -32,13 +32,6 @@ return require('packer').startup(
         }
 
         -- color schemes
-        -- use { 'EdenEast/nightfox.nvim',
-        --     opt = true,
-        --     config = function()
-        --         require('plugin.nightfox-config')
-        --     end
-        -- }
-
         use { '~/Dev/lua/mellow.nvim',
             opt = true,
             config = function()
@@ -61,10 +54,17 @@ return require('packer').startup(
         --     end
         -- }
 
-        use { "catppuccin/nvim", as = "catppuccin",
+        --        use { "catppuccin/nvim", as = "catppuccin",
+        --            opt = true,
+        --            config = function()
+        --                require('plugin.catppuccin-config')
+        --            end
+        --        }
+
+        use { "~/Dev/lua/minimal.nvim/",
             opt = true,
             config = function()
-                require('plugin.catppuccin-config')
+                require('plugin.minimal-config')
             end
         }
 

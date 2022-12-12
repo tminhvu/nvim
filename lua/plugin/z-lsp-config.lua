@@ -98,6 +98,7 @@ lspconfig.cssls.setup {
     root_dir = function(fname)
         return lspconfig.util.root_pattern(
             'package.json',
+            '.gitignore',
             'README.md',
             '.git')(fname) or vim.fn.getcwd()
     end,
@@ -125,6 +126,7 @@ lspconfig.tsserver.setup {
     root_dir = function(fname)
         return lspconfig.util.root_pattern(
             'package.json',
+            '.gitignore',
             'README.md',
             '.git')(fname) or vim.fn.getcwd()
     end,
@@ -141,6 +143,7 @@ lspconfig.eslint.setup {
     root_dir = function(fname)
         return lspconfig.util.root_pattern(
             '.eslintrc.json',
+            '.gitignore',
             'package.json',
             'README.md',
             '.git')(fname) or vim.fn.getcwd()
@@ -180,6 +183,7 @@ lspconfig.html.setup {
     root_dir = function(fname)
         return lspconfig.util.root_pattern(
             'package.json',
+            '.gitignore',
             'README.md',
             '.git')(fname) or vim.fn.getcwd()
     end,
@@ -192,6 +196,7 @@ lspconfig.astro.setup({
     root_dir = function(fname)
         return lspconfig.util.root_pattern(
             'package.json',
+            '.gitignore',
             'README.md',
             '.git')(fname) or vim.fn.getcwd()
     end,
@@ -202,6 +207,13 @@ lspconfig.tailwindcss.setup({
     autostart = false,
     on_attach = on_attach,
     capabilities = capabilities,
+    root_dir = function(fname)
+        return lspconfig.util.root_pattern(
+            'package.json',
+            '.gitignore',
+            'README.md',
+            '.git')(fname) or vim.fn.getcwd()
+    end,
 })
 
 -- JsonLS for Json
@@ -212,6 +224,7 @@ lspconfig.jsonls.setup {
     root_dir = function(fname)
         return lspconfig.util.root_pattern(
             'package.json',
+            '.gitignore',
             'README.md',
             '.git')(fname) or vim.fn.getcwd()
     end,
@@ -276,9 +289,10 @@ lspconfig.sumneko_lua.setup {
     },
     root_dir = function(fname)
         return lspconfig.util.root_pattern(
-            'src',
+            '.gitignore',
             'README.md',
             '.luarc.json',
+            'src',
             'main.lua',
             'init.lua',
             '.git')(fname) or vim.fn.getcwd()
