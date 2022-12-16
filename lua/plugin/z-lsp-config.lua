@@ -3,7 +3,6 @@ require("nvim-lsp-installer").setup {}
 -- LSP SERVER CONFIG
 local opts = { noremap = true, silent = true }
 local on_attach = function(client, bufnr)
-    -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
@@ -16,22 +15,18 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.format { async = false }<CR>', opts)
-    --vim.api.nvim_buf_set_keymap(bufnr,'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting_sync()', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', opts)
 end
 
 local lspconfig = require 'lspconfig'
 
--- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities()
---capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- CLANGD for C
 lspconfig.clangd.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    --cmd = { "clangd" },
     filetypes = { "c", "cpp", "objc", "objcpp" },
     root_dir = function(fname)
         return lspconfig.util.root_pattern(
@@ -93,14 +88,14 @@ lspconfig.bashls.setup {
 lspconfig.cssls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    -- cmd = { "vscode-css-language-server", "--stdio" },
     filetypes = { "css", "scss", "less" },
     root_dir = function(fname)
         return lspconfig.util.root_pattern(
             'package.json',
             '.gitignore',
             'README.md',
-            '.git')(fname) or vim.fn.getcwd()
+            '.git',
+            'src')(fname) or vim.fn.getcwd()
     end,
     settings = {
         css = {
@@ -128,7 +123,8 @@ lspconfig.tsserver.setup {
             'package.json',
             '.gitignore',
             'README.md',
-            '.git')(fname) or vim.fn.getcwd()
+            '.git',
+            'src')(fname) or vim.fn.getcwd()
     end,
     single_file_support = true
 }
@@ -136,7 +132,7 @@ lspconfig.tsserver.setup {
 -- ESLINT for JS diagnostics
 -- run "npm install eslint" and "eslint --init" on project's root first
 lspconfig.eslint.setup {
-    --autostart = false,
+    autostart = false,
     on_attach = on_attach,
     capabilities = capabilities,
     filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
@@ -146,7 +142,8 @@ lspconfig.eslint.setup {
             '.gitignore',
             'package.json',
             'README.md',
-            '.git')(fname) or vim.fn.getcwd()
+            '.git',
+            'src')(fname) or vim.fn.getcwd()
     end,
     single_file_support = true
 }
@@ -155,8 +152,7 @@ lspconfig.eslint.setup {
 lspconfig.html.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    -- cmd = { "vscode-html-language-server", "--stdio" },
-    filetypes = { "html" }, -- "javascript", "typescript", "typescriptreact" },
+    filetypes = { "html" },
     init_options = {
         configurationSection = { "html", "css", "javascript" },
         embeddedLanguages = {
@@ -185,7 +181,8 @@ lspconfig.html.setup {
             'package.json',
             '.gitignore',
             'README.md',
-            '.git')(fname) or vim.fn.getcwd()
+            '.git',
+            'src')(fname) or vim.fn.getcwd()
     end,
     settings = {},
     single_file_support = true
@@ -193,6 +190,7 @@ lspconfig.html.setup {
 
 -- For astro
 lspconfig.astro.setup({
+    autostart = false,
     root_dir = function(fname)
         return lspconfig.util.root_pattern(
             'package.json',
@@ -212,7 +210,8 @@ lspconfig.tailwindcss.setup({
             'package.json',
             '.gitignore',
             'README.md',
-            '.git')(fname) or vim.fn.getcwd()
+            '.git',
+            'src')(fname) or vim.fn.getcwd()
     end,
 })
 
@@ -299,14 +298,3 @@ lspconfig.sumneko_lua.setup {
     end,
     single_file_support = true
 }
---local autocmd = vim.api.nvim_create_autocmd
---
---autocmd('filetype', {
---  pattern = 'toml',
---  once = true,
---  desc = 'toml configurations',
---  callback = function()
---     require('cool-module.toml')
---  end
---})
---
