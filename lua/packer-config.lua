@@ -32,12 +32,6 @@ return require('packer').startup(
         }
 
         -- color schemes
-        use { '~/Dev/lua/mellow.nvim',
-            opt = true,
-            config = function()
-                require('plugin.mellow-config')
-            end
-        }
 
         -- use { 'kvrohit/mellow.nvim',
         --     as = 'mellow.nvim-original',
@@ -54,23 +48,16 @@ return require('packer').startup(
         --     end
         -- }
 
-        --        use { "catppuccin/nvim", as = "catppuccin",
-        --            opt = true,
-        --            config = function()
-        --                require('plugin.catppuccin-config')
-        --            end
-        --        }
-
-        use { "~/Dev/lua/minimal.nvim/",
-            opt = true,
-            config = function()
-                require('plugin.minimal-config')
-            end
-        }
-
         use { "~/Dev/lua/darkplus.nvim",
             config = function()
                 vim.cmd [[colorscheme darkplus]]
+            end
+        }
+
+        use { '~/Dev/lua/vim-nightfly-colors',
+            opt = true,
+            config = function()
+                require('plugin.nightfly-config')
             end
         }
 
